@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting Up a WordPress Blog on AWS EC2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        code {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 5px;
+            display: block;
+            white-space: pre-wrap;
+            overflow-x: auto;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Setting Up a WordPress with MySQL Blog on AWS EC2</h1>
+
+<h2>1. Create an EC2 Machine</h2>
+<code># AWS CLI Command to launch an EC2 instance goes here</code>
+
+<h2>2. Allow the Required Port to Access</h2>
+<code># AWS CLI Command to configure security group rules goes here</code>
+
+<h2>3. Connect to EC2 Machine</h2>
+<code># SSH Command to connect to the EC2 instance goes here</code>
+
+<h2>4. Update Package Manager</h2>
+<code>sudo apt-get update</code>
+
+<h2>5. Install Apache2</h2>
+<code>sudo apt-get install apache2</code>
+
+<h2>6. Install PHP and MySQL Support</h2>
+<code>sudo apt-get install php libapache2-mod-php php-mysql</code>
+
+<h2>7. Install MySQL Server</h2>
+<code>sudo apt-get install mysql-server</code>
+
+<h2>8. Connect to MySQL Server</h2>
+<code>sudo mysql -u root</code>
+
+<h2>9. Set MySQL Root User Password</h2>
+<code>ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Testpassword@123';</code>
+
+<h2>10. Create WordPress Database User</h2>
+<code>CREATE USER 'wp_user'@'localhost' IDENTIFIED BY 'Testpassword@123';</code>
+
+<h2>11. Create WordPress Database</h2>
+<code>CREATE DATABASE wp;</code>
+
+<h2>12. Grant Permissions to the WordPress Database</h2>
+<code>GRANT ALL PRIVILEGES ON wp.* TO 'wp_user'@'localhost';</code>
+
+<h2>13. Exit MySQL</h2>
+<code>exit</code>
+
+<h2>14. Download WordPress</h2>
+<code>cd /tmp</code>
+<code>wget https://wordpress.org/latest.tar.gz</code>
+<code>tar -xzvf latest.tar.gz</code>
+
+<h2>15. Move WordPress to Apache Document Root</h2>
+<code>sudo mv wordpress/ /var/www/html</code>
+
+<h2>16. Change Directory to WordPress</h2>
+<code>cd /var/www/html</code>
+
+<h2>17. List Contents</h2>
+<code>ls</code>
+
+<h2>18. Restart Apache2</h2>
+<code>sudo systemctl restart apache2</code>
+
+<h2>19. Access the EC2 IP /wordpress</h2>
+<code># Open your web browser and navigate to EC2_IP/wordpress</code>
+
+<h2>20. Enter Required Fields</h2>
+<code># Follow the WordPress installation wizard</code>
+
+<h2>21. Copy the Config File</h2>
+<code># Instructions on copying the config file goes here</code>
+
+<h2>22. Edit the Config File</h2>
+<code>vi wp-config.php</code>
+<code># Paste the copied config file content here</code>
+
+<h2>23. Save and Exit</h2>
+<code>:wq</code>
+
+<h2>24. Run the Web Installation</h2>
+<code># Finish the installation in your web browser</code>
+
+<h2>25. Congratulations!</h2>
+<p>Your WordPress blog is now set up on AWS EC2. Visit your site and start blogging!</p>
+
+</body>
+</html>
